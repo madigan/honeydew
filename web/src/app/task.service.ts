@@ -5,14 +5,20 @@ import { Task } from './task.model';
   providedIn: 'root'
 })
 export class TaskService {
+  private tasks:Task[];
 
-  constructor() { }
+  constructor( ) {
+    this.tasks = [
+      new Task("123", "My first task", "Clearly the most important thing."),
+      new Task("456", "My second task", "A slightly less important thing."),
+      new Task("789", "My third task", "I'm sure this one is important too.")
+    ];
+  }
 
   /**
-   *  Returns a task based on its ID.
-   *  @param id The UUID of the task.
+   *  Returns the list of tasks managed by the service.
    */
-  getTask(id:string) {
-    return new Task(id, "My First Task", "Implement this service.");
+  getTasks():Task[] {
+    return this.tasks;
   }
 }
